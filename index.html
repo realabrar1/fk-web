@@ -2119,10 +2119,7 @@ html {
                 <span lang="en">About</span>
                 <span lang="sv">Om oss</span>
             </a>
-            <a href="#" class="nav-link" onclick="showPage('case-studies')">
-                <span lang="en">Case Studies</span>
-                <span lang="sv">Kundcase</span>
-            </a>
+            
             <a href="#" class="nav-link" onclick="showPage('careers')">
                 <span lang="en">Careers</span>
                 <span lang="sv">Karriär</span>
@@ -2143,7 +2140,7 @@ html {
     <!-- Home Page -->
     <div id="home" class="page active">
         <!-- Hero Section -->
-        <section class="hero">
+        <!-- <section class="hero">
             <img src="images/hero.jpg" alt="Team working in modern office" class="hero-image">
             <div class="hero-overlay"></div>
             
@@ -2159,26 +2156,88 @@ html {
                         <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                     </a>
                 </div>
-                
-                <!-- <div class="trust-indicators">
-                    <div class="trust-item">
-                        <i class="fas fa-check-circle" style="color: white;"></i>
-                        <span lang="en">200+ Businesses Served</span>
-                        <span lang="sv">200+ Företag Betjänade</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-check-circle" style="color: white;"></i>
-                        <span lang="en">SRF Quality Assured</span>
-                        <span lang="sv">SRF Kvalitetssäkrad</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-check-circle" style="color: white;"></i>
-                        <span lang="en">10+ Years Experience</span>
-                        <span lang="sv">10+ Års Erfarenhet</span>
-                    </div>
-                </div> -->
             </div>
-        </section>
+        </section> -->
+        <section id="hero-section"
+         style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+  <img id="hero-img" src="images/hero1.jpeg" alt="Team collaborating at FK Consultancy"
+       style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: all 0.3s ease;">
+
+  <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+
+  <div id="hero-text"
+       style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              text-align: center; color: #ffcc00; font-family: Georgia, serif;
+              width: 90%; max-width: 800px; padding: 0 1rem;">
+              
+    <h1 id="hero-title"
+        style="font-size: clamp(1.6rem, 4.5vw, 3.5rem); font-weight: bold;
+               color: #f9d342; margin-bottom: 0.8rem; line-height: 1.2;">
+      FK CONSULTANCY
+    </h1>
+
+    <p id="hero-subtitle"
+       style="font-size: clamp(0.8rem, 2vw, 1.3rem); color: #ffffff;
+              margin-bottom: 1.6rem; line-height: 1.5;">
+      Your Modern Partner for Accounting, Payroll & FPGA & Software Solutions.
+    </p>
+
+    <div id="hero-buttons"
+         style="display: flex; justify-content: center; align-items: center;
+                flex-wrap: nowrap; gap: 0.5rem;">
+      <a href="#" onclick="showPage('contact')"
+         style="padding: clamp(0.4rem, 1.5vw, 0.7rem) clamp(0.8rem, 2.5vw, 1.2rem);
+                font-size: clamp(0.65rem, 1.5vw, 0.95rem); font-weight: bold;
+                background-color: #f9d342; color: #000; border: none;
+                border-radius: 6px; text-decoration: none; transition: 0.3s;">
+        <span lang="en">Contact Us</span>
+      </a>
+
+      <a href="#" onclick="showPage('services')"
+         style="padding: clamp(0.4rem, 1.5vw, 0.7rem) clamp(0.8rem, 2.5vw, 1.2rem);
+                font-size: clamp(0.65rem, 1.5vw, 0.95rem); font-weight: bold;
+                background-color: rgba(255,255,255,0.1);
+                border: 2px solid rgba(255,255,255,0.2); color: white;
+                border-radius: 6px; text-decoration: none; transition: 0.3s;">
+        <span lang="en">Explore Services</span>
+        <i class="fas fa-arrow-right" style="margin-left: 0.4rem;"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function adjustHero() {
+    const img = document.getElementById('hero-img');
+    const section = document.getElementById('hero-section');
+    const text = document.getElementById('hero-text');
+
+    if (window.innerWidth <= 768) {
+      // Mobile view
+      section.style.height = "auto";
+      img.style.height = "auto";
+      img.style.objectFit = "contain";
+
+      // Move text slightly down and shrink content
+      text.style.top = "58%"; // lower the text from top
+      text.style.transform = "translate(-50%, -50%)";
+      text.style.padding = "2rem 1rem";
+
+    } else {
+      // Desktop view
+      section.style.height = "100vh";
+      img.style.height = "100%";
+      img.style.objectFit = "cover";
+      text.style.top = "50%";
+      text.style.transform = "translate(-50%, -50%)";
+      text.style.padding = "0 1rem";
+    }
+  }
+
+  window.addEventListener('load', adjustHero);
+  window.addEventListener('resize', adjustHero);
+</script>
+
 
         <!-- Services Highlight Cards -->
         <section class="section bg-muted/50">
@@ -2376,8 +2435,8 @@ html {
                         <span lang="sv">Oavsett om du behöver finansiell expertis eller FPGA-konsultation, är vi här för att hjälpa ditt företag att lyckas.</span>
                     </p>
                     <a href="#" class="btn btn-primary btn-lg" onclick="showPage('contact')">
-                        <span lang="en">Book a Free Needs Meeting</span>
-                        <span lang="sv">Boka ett gratis behovsmöte</span>
+                        <span lang="en">Contact Us</span>
+                        <span lang="sv">Kontakta Oss</span>
                     </a>
                 </div>
             </div>
@@ -2421,10 +2480,10 @@ html {
                         <div class="card text-center w-full max-w-md">
                             <div class="card-header">
                                 <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden bg-muted flex items-center justify-center">
-                                    <img src="https://raw.githubusercontent.com/realabrar1/fk-web/refs/heads/main/images/founder.jpg" alt="Founder" class="w-16 h-16 rounded-full object-cover border border-gray-300" />
+                                    <img src="images/founder.jpg" alt="Founder" class="w-16 h-16 rounded-full object-cover border border-gray-300" />
 
                                 </div>
-                                <h3 class="card-title text-2xl">Mohammed Azeer Kaiser</h3>
+                                <h3 class="card-title text-2xl">Mohammed Azeez Kaiser</h3>
                                 <p class="card-description text-lg">
                                     <span lang="en">Founder & CEO</span>
                                     <span lang="sv">Grundare & VD</span>
@@ -2432,8 +2491,8 @@ html {
                             </div>
                             <div class="card-content">
                                 <p class="text-muted-foreground mb-6 leading-relaxed">
-                                    <span lang="en">With over 15 years of experience in financial consulting, Azeez founded FK Consultancy with a vision to provide comprehensive business solutions. His expertise spans accounting, tax strategy, and business development for SMEs.</span>
-                                    <span lang="sv">Med över 15 års erfarenhet inom finansiell konsultation grundade Azeez FK Consultancy med en vision att tillhandahålla omfattande affärslösningar. Hans expertis sträcker sig över bokföring, skattestrategi och affärsutveckling för SME-företag.</span>
+                                    <span lang="en">founded FK Consultancy with a vision to provide comprehensive business solutions. His expertise spans accounting, tax strategy, and business development for SMEs.</span>
+                                    <span lang="sv">grundade Azeez FK Consultancy med en vision att tillhandahålla omfattande affärslösningar. Hans expertis sträcker sig över bokföring, skattestrategi och affärsutveckling för SME-företag.</span>
                                 </p>
                                 <div class="flex justify-center space-x-4">
                                     <a href="https://www.linkedin.com/in/mohammed-azeez-kaiser-76b6a8165/" target="_blank" class="btn btn-outline btn-sm">
@@ -2871,8 +2930,8 @@ html {
                             <span lang="sv">Få en gratis behovsanalys för att förstå hur våra tjänster kan gynna ditt företag.</span>
                         </p>
                         <a href="#" class="btn btn-primary btn-lg" onclick="showPage('contact')">
-                            <span lang="en">Book a Free Needs Meeting</span>
-                            <span lang="sv">Boka ett gratis behovsmöte</span>
+                            <span lang="en">Contact Us</span>
+                            <span lang="sv">Kontakta Oss</span>
                             <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                         </a>
                     </div>
@@ -3061,8 +3120,8 @@ html {
                             <span lang="sv">Få en gratis behovsanalys för att förstå hur våra redovisningstjänster kan gynna ditt företag.</span>
                         </p>
                         <a href="#" class="btn btn-primary btn-lg" onclick="showPage('contact')">
-                            <span lang="en">Book a Free Needs Meeting</span>
-                            <span lang="sv">Boka ett gratis behovsmöte</span>
+                            <span lang="en">Contact Us</span>
+                            <span lang="sv">Kontakta Oss</span>
                             <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                         </a>
                     </div>
@@ -3543,10 +3602,10 @@ html {
                                         <span lang="en">Portfolio Sites</span>
                                         <span lang="sv">Portföljsajter</span>
                                     </h3>
-                                    <p class="text-muted-foreground text-sm">
+                                    <!-- <p class="text-muted-foreground text-sm">
                                         <span lang="en">Showcase your work with beautiful galleries and case studies</span>
                                         <span lang="sv">Visa upp ditt arbete med vackra gallerier och kundcase</span>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -3638,8 +3697,8 @@ html {
                             <span lang="sv">Få en gratis konsultation för att diskutera ditt projekt och få ett anpassat förslag.</span>
                         </p>
                         <a href="#" class="btn btn-primary btn-lg" onclick="showPage('contact')">
-                            <span lang="en">Book a Free Needs Meeting</span>
-                            <span lang="sv">Boka ett gratis behovsmöte</span>
+                            <span lang="en">Contact Us</span>
+                            <span lang="sv">Kontakta Oss</span>
                             <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                         </a>
                     </div>
@@ -3648,302 +3707,7 @@ html {
         </section>
     </div>
 
-    <!-- Case Studies Page -->
-    <div id="case-studies" class="page">
-        <!-- Hero Section -->
-        <section class="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-            <div class="container">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-                        <span lang="en">Case Studies & Testimonials</span>
-                        <span lang="sv">Kundcase & Rekommendationer</span>
-                    </h1>
-                    <p class="text-xl text-muted-foreground mb-8 text-pretty">
-                        <span lang="en">Real results from real clients across diverse industries</span>
-                        <span lang="sv">Riktiga resultat från riktiga kunder över olika branscher</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Client Testimonials -->
-        <section class="py-16 lg:py-24">
-            <div class="container">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                            <span lang="en">What Our Clients Say</span>
-                            <span lang="sv">Vad Våra Kunder Säger</span>
-                        </h2>
-                        <p class="text-lg text-muted-foreground">
-                            <span lang="en">Trusted by businesses across Sweden for reliable service and expert guidance</span>
-                            <span lang="sv">Förtroende av företag över hela Sverige för pålitlig service och expertvägledning</span>
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1-md grid-cols-2-md grid-cols-3-lg gap-8">
-                        <!-- Testimonial 1 -->
-                        <div class="card group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20">
-                            <div class="card-header pb-4">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-building text-primary"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="card-title text-lg">Layher AB</h3>
-                                        <p class="text-sm text-muted-foreground">
-                                            <span lang="en">Construction Equipment</span>
-                                            <span lang="sv">Byggutrustning</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-1 mb-3">
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="flex items-start gap-3 mb-4">
-                                    <i class="fas fa-quote-left text-muted-foreground flex-shrink-0 mt-1"></i>
-                                    <p class="card-description leading-relaxed italic">
-                                        <span lang="en">Knowledgeable and meticulous—our payroll has been on time for over 10 years.</span>
-                                        <span lang="sv">Kunniga och noggranna—våra löner har varit i tid i över 10 år.</span>
-                                    </p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-medium text-primary">
-                                        <span lang="en">Accounting & Payroll</span>
-                                        <span lang="sv">Bokföring & Löner</span>
-                                    </span>
-                                    <button class="btn btn-ghost btn-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors" onclick="openModal('modal1')">
-                                        <span lang="en">Read More</span>
-                                        <span lang="sv">Läs Mer</span>
-                                        <i class="fas fa-arrow-right" style="margin-left: 0.25rem;"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="card group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20">
-                            <div class="card-header pb-4">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-chart-line text-primary"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="card-title text-lg">Urban Retail</h3>
-                                        <p class="text-sm text-muted-foreground">
-                                            <span lang="en">Retail Technology</span>
-                                            <span lang="sv">Detaljhandelsteknik</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-1 mb-3">
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="flex items-start gap-3 mb-4">
-                                    <i class="fas fa-quote-left text-muted-foreground flex-shrink-0 mt-1"></i>
-                                    <p class="card-description leading-relaxed italic">
-                                        <span lang="en">Always professional with concrete answers and great advice.</span>
-                                        <span lang="sv">Alltid professionella med konkreta svar och bra råd.</span>
-                                    </p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-medium text-primary">
-                                        <span lang="en">Business Advisory</span>
-                                        <span lang="sv">Affärsrådgivning</span>
-                                    </span>
-                                    <button class="btn btn-ghost btn-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors" onclick="openModal('modal2')">
-                                        <span lang="en">Read More</span>
-                                        <span lang="sv">Läs Mer</span>
-                                        <i class="fas fa-arrow-right" style="margin-left: 0.25rem;"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="card group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20">
-                            <div class="card-header pb-4">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-bolt text-primary"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="card-title text-lg">Kista Grossen AB</h3>
-                                        <p class="text-sm text-muted-foreground">
-                                            <span lang="en">Technology Services</span>
-                                            <span lang="sv">Tekniktjänster</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-1 mb-3">
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="flex items-start gap-3 mb-4">
-                                    <i class="fas fa-quote-left text-muted-foreground flex-shrink-0 mt-1"></i>
-                                    <p class="card-description leading-relaxed italic">
-                                        <span lang="en">Fast communication and excellent service.</span>
-                                        <span lang="sv">Snabb kommunikation och utmärkt service.</span>
-                                    </p>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-medium text-primary">
-                                        <span lang="en">Accounting Services</span>
-                                        <span lang="sv">Redovisningstjänster</span>
-                                    </span>
-                                    <button class="btn btn-ghost btn-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors" onclick="openModal('modal3')">
-                                        <span lang="en">Read More</span>
-                                        <span lang="sv">Läs Mer</span>
-                                        <i class="fas fa-arrow-right" style="margin-left: 0.25rem;"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FPGA Case Study Highlight -->
-        <section class="py-16 lg:py-24 bg-muted/30">
-            <div class="container">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                            <span lang="en">Featured FPGA Project</span>
-                            <span lang="sv">Utvalt FPGA-projekt</span>
-                        </h2>
-                        <p class="text-lg text-muted-foreground">
-                            <span lang="en">Delivering cutting-edge hardware solutions for industrial automation</span>
-                            <span lang="sv">Levererar banbrytande hårdvarulösningar för industriell automatisering</span>
-                        </p>
-                    </div>
-
-                    <div class="card border-accent/20 bg-accent/5">
-                        <div class="card-header">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-bolt text-accent text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="card-title text-2xl">
-                                        <span lang="en">Industrial Vision System</span>
-                                        <span lang="sv">Industriellt Visionsystem</span>
-                                    </h3>
-                                    <p class="card-description text-base">
-                                        <span lang="en">Real-time image processing with ultra-low latency</span>
-                                        <span lang="sv">Realtidsbildbehandling med ultralåg latens</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="grid grid-cols-1-md grid-cols-2-md gap-8">
-                                <div>
-                                    <h4 class="font-semibold text-foreground mb-3">
-                                        <span lang="en">Project Overview</span>
-                                        <span lang="sv">Projektöversikt</span>
-                                    </h4>
-                                    <p class="text-muted-foreground leading-relaxed mb-4">
-                                        <span lang="en">Delivered an FPGA-based vision system with 30% lower latency for an industrial automation client. The solution processed high-resolution images in real-time while maintaining strict timing requirements for quality control applications.</span>
-                                        <span lang="sv">Levererade ett FPGA-baserat visionsystem med 30% lägre latens för en industriell automatiseringskund. Lösningen processerade högupplösta bilder i realtid samtidigt som den upprätthöll strikta timingkrav för kvalitetskontrollapplikationer.</span>
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
-                                            <span lang="en">Real-time Processing</span>
-                                            <span lang="sv">Realtidsprocessering</span>
-                                        </span>
-                                        <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
-                                            <span lang="en">30% Latency Reduction</span>
-                                            <span lang="sv">30% Latensreduktion</span>
-                                        </span>
-                                        <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
-                                            <span lang="en">Industrial Grade</span>
-                                            <span lang="sv">Industrikvalitet</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-foreground mb-3">
-                                        <span lang="en">Technical Achievements</span>
-                                        <span lang="sv">Tekniska Prestationer</span>
-                                    </h4>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-center gap-2">
-                                            <div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                                            <span class="text-muted-foreground text-sm">
-                                                <span lang="en">Custom FPGA architecture for parallel processing</span>
-                                                <span lang="sv">Anpassad FPGA-arkitektur för parallellprocessering</span>
-                                            </span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                                            <span class="text-muted-foreground text-sm">
-                                                <span lang="en">Optimized HDL code for maximum throughput</span>
-                                                <span lang="sv">Optimerad HDL-kod för maximal genomströmning</span>
-                                            </span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                                            <span class="text-muted-foreground text-sm">
-                                                <span lang="en">Comprehensive verification and validation</span>
-                                                <span lang="sv">Omfattande verifiering och validering</span>
-                                            </span>
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-                                            <span class="text-muted-foreground text-sm">
-                                                <span lang="en">Successful deployment in production environment</span>
-                                                <span lang="sv">Framgångsrik driftsättning i produktionsmiljö</span>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="py-16 lg:py-24">
-            <div class="container">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                        <span lang="en">Ready to Join Our Success Stories?</span>
-                        <span lang="sv">Redo att Gå Med i Våra Framgångsberättelser?</span>
-                    </h2>
-                    <p class="text-lg text-muted-foreground mb-8">
-                        <span lang="en">Let us help you achieve similar results with our expert financial and technical consulting services.</span>
-                        <span lang="sv">Låt oss hjälpa dig att uppnå liknande resultat med våra expert finansiella och tekniska konsulttjänster.</span>
-                    </p>
-                    <a href="#" class="btn btn-primary btn-lg" onclick="showPage('contact')">
-                        <span lang="en">Start Your Success Story</span>
-                        <span lang="sv">Starta Din Framgångsberättelse</span>
-                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
+ 
 
     <!-- Careers Page -->
     <div id="careers" class="page">
@@ -4347,7 +4111,7 @@ html {
                                                 <span lang="en">Address</span>
                                                 <span lang="sv">Adress</span>
                                             </p>
-                                            <p class="text-muted-foreground">Neeru prakesh, LGH 1202 Tönsbergsgatan 7 kista 16439</p>
+                                            <p class="text-muted-foreground">C/o Neeru Prakesh, LGH 1202,  Tönsbergsgatan 7, kista 16439</p>
                                         </div>
                                     </div>
                                     <div class="flex items-start gap-3">
@@ -4367,7 +4131,7 @@ html {
                                                 <span lang="en">Email</span>
                                                 <span lang="sv">E-post</span>
                                             </p>
-                                            <p class="text-muted-foreground">info@fkconsultancy.se</p>
+                                            <p class="text-muted-foreground">fkconsultancy.se@gmail.com</p>
                                         </div>
                                     </div>
                                     <div class="flex items-start gap-3">
@@ -4425,10 +4189,7 @@ html {
                                         <span lang="en">Learn About Our Services</span>
                                         <span lang="sv">Läs Om Våra Tjänster</span>
                                     </a>
-                                    <a href="#" class="btn btn-outline w-full justify-start bg-transparent" onclick="showPage('case-studies')">
-                                        <span lang="en">View Case Studies</span>
-                                        <span lang="sv">Se Kundcase</span>
-                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -4475,12 +4236,7 @@ html {
                                 <span lang="sv">Om Oss</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="footer-link" onclick="showPage('case-studies')">
-                                <span lang="en">Case Studies</span>
-                                <span lang="sv">Kundcase</span>
-                            </a>
-                        </li>
+                       
                         <li>
                             <a href="#" class="footer-link" onclick="showPage('careers')">
                                 <span lang="en">Careers</span>
@@ -4528,7 +4284,7 @@ html {
                     <div class="space-y-3">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-map-marker-alt text-muted-foreground"></i>
-                            <span class="text-muted-foreground text-sm">Neeru prakesh, LGH 1202 Tönsbergsgatan 7 kista 16439</span>
+                            <span class="text-muted-foreground text-sm">C/o Neeru Prakesh, LGH 1202,  Tönsbergsgatan 7, kista 16439</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-phone text-muted-foreground"></i>
@@ -4536,7 +4292,7 @@ html {
                         </div>
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-envelope text-muted-foreground"></i>
-                            <span class="text-muted-foreground text-sm">info@fkconsultancy.se</span>
+                            <span class="text-muted-foreground text-sm"> fkconsultancy.se@gmail.com</span>
                         </div>
                     </div>
                 </div>
